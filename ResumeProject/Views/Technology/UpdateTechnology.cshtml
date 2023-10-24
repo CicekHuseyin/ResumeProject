@@ -1,0 +1,17 @@
+﻿@model ResumeProject.Models.tbl_technology
+@{
+    ViewBag.Title = "UpdateTechnology";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Teknoloji Güncelleme Sayfası</h2>
+<form method="post">
+    @Html.HiddenFor(x=>x.TehnologyId)
+    <label>Teknoloji Adı</label>
+    @Html.TextAreaFor(x => x.TechnologyTitle, new { @class = "form-control" })
+    <br />
+    <label>Teknoloji Değeri</label>
+    @Html.TextAreaFor(x => x.TechnologyValue, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Verileri Güncelle</button>
+</form>

@@ -1,0 +1,32 @@
+﻿@using ResumeProject.Models
+@model List<tbl_technology> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h2>Teknoloji Listesi</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Değer</th>
+        <th>Sil</th>
+        <th>Günccelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <th>@count</th>
+            <th>@item.TechnologyTitle</th>
+            <th>@item.TechnologyValue</th>
+            <th><a href="/Technology/DeleteTechnology/@item.TehnologyId" class="btn btn-outline-danger">Sil</a></th>
+            <th><a href="/Technology/UpdateTechnology/@item.TehnologyId" class="btn btn-outline-success">Güncelle</a></th>
+        </tr>
+    }
+</table>
+<a href="/Technology/AddTechnology/" class="btn btn-outline-primary">Yeni Teknoloji Girişi</a>
+
