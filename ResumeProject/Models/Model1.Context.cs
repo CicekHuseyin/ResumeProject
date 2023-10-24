@@ -12,6 +12,8 @@ namespace ResumeProject.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbResumeeEntities : DbContext
     {
@@ -32,5 +34,10 @@ namespace ResumeProject.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tbl_category> tbl_category { get; set; }
         public virtual DbSet<tbl_contact> tbl_contact { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> ProjeTalebiCount()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("ProjeTalebiCount");
+        }
     }
 }

@@ -75,7 +75,7 @@
           <Property Name="TechnologyTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="TechnologyValue" Type="int" />
         </EntityType>
-        <Association Name="FK_tbl_contact_tbl_category">
+        <Association Name="FK_tbl_contact_tbl_category1">
           <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
           <End Role="tbl_contact" Type="Self.tbl_contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -87,6 +87,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ProjeTalebiCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbResumeeModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
@@ -95,7 +96,7 @@
           <EntitySet Name="tbl_project" EntityType="Self.tbl_project" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_skill" EntityType="Self.tbl_skill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_technology" EntityType="Self.tbl_technology" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_tbl_contact_tbl_category" Association="Self.FK_tbl_contact_tbl_category">
+          <AssociationSet Name="FK_tbl_contact_tbl_category1" Association="Self.FK_tbl_contact_tbl_category1">
             <End Role="tbl_category" EntitySet="tbl_category" />
             <End Role="tbl_contact" EntitySet="tbl_contact" />
           </AssociationSet>
@@ -158,6 +159,7 @@
             <End Role="tbl_category" EntitySet="tbl_category" />
             <End Role="tbl_contact" EntitySet="tbl_contact" />
           </AssociationSet>
+          <FunctionImport Name="ProjeTalebiCount" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -284,6 +286,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ProjeTalebiCount" FunctionName="DbResumeeModel.Store.ProjeTalebiCount" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
