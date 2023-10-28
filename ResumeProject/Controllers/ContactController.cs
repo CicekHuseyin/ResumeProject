@@ -22,5 +22,33 @@ namespace ResumeProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult SendMessage()
+		{
+            List<SelectListItem> values = (from x in db.tbl_category.ToList()
+                                           select new SelectListItem 
+                                           { 
+                                               Text=x.CategoryName,
+                                               Value=x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
+            return View();
+		}
+        [HttpPost]
+        public ActionResult SendMessage(tbl_contact p)
+        {
+            p.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.tbl_contact.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index","Default");
+        }
+        public PartialViewResult PartialMap()
+		{
+            return PartialView();
+		}
+        public PartialViewResult PartialFeature()
+        {
+            return PartialView();
+        }
     }
 }
