@@ -434,6 +434,10 @@
     <Content Include="Views\Default\PartialBrands.cshtml" />
     <Content Include="Views\Default\PartialFooter.cshtml" />
     <Content Include="Views\Default\PartialScript.cshtml" />
+    <Content Include="Views\Contact\SendMessage.cshtml" />
+    <Content Include="Views\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Views\Contact\PartialMap.cshtml" />
+    <Content Include="Views\Contact\PartialFeature.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
